@@ -34,7 +34,6 @@ public class ToyCameraImageEffect : MonoBehaviour
     {
     }
 
-    // Performs one blur iteration.
     void fourTapCone (RenderTexture src, RenderTexture dest, int iteration)
     {
         float off = 0.5f + iteration*blurSpread;
@@ -46,7 +45,6 @@ public class ToyCameraImageEffect : MonoBehaviour
                 );
     }
 
-    // Downsamples the texture to a quarter resolution.
     void downSample4x (RenderTexture src, RenderTexture dest)
     {
         float off = 1.0f;
@@ -67,7 +65,6 @@ public class ToyCameraImageEffect : MonoBehaviour
 
         downSample4x (src, buffer);
 
-        // Blur the small texture
         for(int i = 0; i < iterations; i++)
         {
             RenderTexture buffer2 = RenderTexture.GetTemporary(rtW, rtH, 0);
@@ -78,7 +75,6 @@ public class ToyCameraImageEffect : MonoBehaviour
 
         material.SetTexture( "_BlurTex", buffer );
 
-        /* Graphics.Blit( buffer, dest ); */
         Graphics.Blit( src, dest, material );
 
         RenderTexture.ReleaseTemporary(buffer);
