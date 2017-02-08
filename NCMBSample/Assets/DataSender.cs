@@ -54,9 +54,10 @@ public class DataSender : MonoBehaviour {
 
 	public void SendData( NCMBObject ncmb_obj ) {
         // オブジェクトに値を設定
-        ncmb_obj["numFreePlayer"] = numFreePlayer + 1;
-        ncmb_obj["numPayment1Player"] = numPayment1Player;
-        ncmb_obj["numPayment2Player"] = numPayment2Player;
+        ncmb_obj.Increment( "numFreePlayer" );
+        /* = numFreePlayer + 1; */
+        /* ncmb_obj["numPayment1Player"] = numPayment1Player; */
+        /* ncmb_obj["numPayment2Player"] = numPayment2Player; */
         // データストアへの登録
         ncmb_obj.SaveAsync();
 	}
