@@ -45,7 +45,6 @@ public class TestScript : MonoBehaviour {
         float sum = 0.0f;
         for( int i = 0; i < loopCount; ++i )
         {
-            /* float theta = ( float )( i % 360 ) * Mathf.Deg2Rad; */
             sum += Mathf.Cos( (float)i );
         }
 		
@@ -60,7 +59,6 @@ public class TestScript : MonoBehaviour {
         float sum = 0.0f;
         for( int i = 0; i < loopCount; ++i )
         {
-            /* float theta = ( float )( i % 360 ) * Mathf.Deg2Rad; */
             sum += getCosFromTable( (float)i );
         }
         stopWatch.Stop();
